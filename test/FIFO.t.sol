@@ -8,9 +8,6 @@ import "../src/FIFOLib.sol";
 contract FIFOTest is Test {
     using FIFOLib for FIFO;
 
-    address constant testProvider = address(69);
-    uint256 constant testVersion = 420;
-
     FIFO public f;
 
     function setUp() public {
