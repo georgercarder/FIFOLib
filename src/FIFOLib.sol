@@ -17,7 +17,6 @@ library FIFOLib {
 
     // assuming values are non-trivial, non-repeating, unchecked
     function pushBack(FIFO storage f, uint256 value) internal {
-        FIFOElement memory newElement = FIFOElement({id: value, nextId: 0});
         FIFOElement memory head = f.head;
         if (head.id != 0) {
             FIFOElement memory tail = f.tail;
@@ -26,6 +25,7 @@ library FIFOLib {
             } else { // tail dne
                 f.head.nextId = value;
             }
+            FIFOElement memory newElement = FIFOElement({id: value, nextId: 0});
             f.list[value] = newElement;  
             f.tail = newElement;
             return;
